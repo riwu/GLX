@@ -1,4 +1,4 @@
-/**  © 2013, Brandon T. All Rights Reserved.
+/**  Â© 2013, Brandon T. All Rights Reserved.
   *
   *  This file is part of the GLX Library.
   *  GLX is free software: you can redistribute it and/or modify
@@ -906,7 +906,7 @@ bool __stdcall Initialize(void)
 		OriginalGL->FunctionAddress(ptr_wglShareLists, "wglShareLists");
 		OriginalGL->FunctionAddress(ptr_wglSwapBuffers, "wglSwapBuffers");
 		OriginalGL->FunctionAddress(ptr_wglSwapLayerBuffers, "wglSwapLayerBuffers");
-		OriginalGL->FunctionAddress(ptr_wglSwapMultipleBuffers, "wglSwapMultipleBuffers");
+		//OriginalGL->FunctionAddress(ptr_wglSwapMultipleBuffers, "wglSwapMultipleBuffers");//remove to work on Mac
 		OriginalGL->FunctionAddress(ptr_wglUseFontBitmapsW, "wglUseFontBitmapsW");
 		OriginalGL->FunctionAddress(ptr_wglUseFontBitmapsA, "wglUseFontBitmapsA");
 		OriginalGL->FunctionAddress(ptr_wglUseFontOutlinesW, "wglUseFontOutlinesW");
