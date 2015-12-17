@@ -19,30 +19,16 @@
 
 unsigned int Texture = 0;
 SMARTInfo* SmartGlobal = nullptr;
-bool SmartDebugEnabled = false;
+bool SmartDebugEnabled = true;
 bool SmartOpenGLEnabled = true;
 
 void SMARTButtonPressed(int ID, bool State)
 {
     switch(ID)
     {
-        case 100:
-            if (State)
-            {
-                SmartGlobal->setCapture(false);
-                SmartOpenGLEnabled = true;
-            }
-            else
-            {
-                SmartGlobal->setCapture(true);
-                SmartOpenGLEnabled = false;
-            }
-            break;
-
         case 101:
-            SmartDebugEnabled = State ? false : true;
+            SmartDebugEnabled = State ?  true : false;
             break;
-
     }
 }
 
@@ -52,15 +38,13 @@ extern "C" void SMARTPluginInit(SMARTInfo* ptr, bool* ReplaceButtons, int* Butto
     if (ptr)
     {
         *ReplaceButtons = true;
-        char** ButtonTexts = new char*[2];
-        ButtonTexts[0] = const_cast<char*>("Disable OpenGL_Enable OpenGL");
-        ButtonTexts[1] = const_cast<char*>("Enable Debug_Disable Debug");
+        char** ButtonTexts = new char*[1];
+        ButtonTexts[0] = const_cast<char*>("Disable Debug_Enable Debug");
 
-        int* IDs = new int[2];
-        IDs[0] = 100;
-        IDs[1] = 101;
+        int* IDs = new int[1];
+        IDs[0] = 101;
 
-        *ButtonCount = 2;
+        *ButtonCount = 1;
         *ButtonText = ButtonTexts;
         *ButtonIDs = IDs;
         *ButtonCallback = &SMARTButtonPressed;
